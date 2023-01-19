@@ -4,14 +4,17 @@ const dotenv = require('dotenv').config()
 const port  = process.env.PORT || 5000 
 const connectDB = require("./config/db")
 const {errorHandler} = require('./middleware/errorMiddleware')
-const app = express()
+const bodyparser = require('body-parser')
+
 
 
 connectDB();
-app.use(express.json())
-app.use(express.urlencoded({extended: false})) 
+const app = express()
+app.use(bodyparser.json())
+app.use(bodyparser.urlencoded({extended: false})) 
 
 app.use('/api/goals', require('./routes/getRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
 // app.get('/api/goals ',(res,req)=> {
 //     res.json({message: 'Get goals'})
 // })
