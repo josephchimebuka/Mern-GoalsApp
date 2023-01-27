@@ -1,10 +1,27 @@
-
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-     <h1>Let's build our frontend app</h1>
+<>
+  <Router>
+    <div className='container'>
+      <Header/>
+    <Routes>
+        <Route path='/' element={<Register/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+      </Routes>
     </div>
+ 
+ 
+    </Router>
+</>
+ 
+
   );
 }
 
