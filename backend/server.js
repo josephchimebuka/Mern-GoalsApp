@@ -5,11 +5,13 @@ const port  = process.env.PORT || 5000
 const connectDB = require("./config/db")
 const {errorHandler} = require('./middleware/errorMiddleware')
 const bodyparser = require('body-parser')
+const cors =  require('cors')
 
 
 
 connectDB();
 const app = express()
+app.use(cors())
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended: false})) 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaSignInAlt } from 'react-icons/fa'
-import { useState,useEffect } from 'react'
+import { useState } from 'react'
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -8,7 +8,7 @@ const Login = () => {
         password: '',
     })
 
-    const{name,email, password, password2} = formData;
+    const{email, password} = formData;
     const onChange =(e) => {
         setFormData((prevState) => ({
             ...prevState,
@@ -21,6 +21,7 @@ const Login = () => {
   return (
     <>
        <section  className='heading'>
+    
         <h1><FaSignInAlt/> Login</h1>
         <p>Please create an account</p>
     </section>
